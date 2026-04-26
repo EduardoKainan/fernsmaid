@@ -1,0 +1,10 @@
+/* We will handle App specific styles here if needed, but mostly we use standard components */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}
