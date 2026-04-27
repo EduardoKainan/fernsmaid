@@ -40,7 +40,7 @@ const Hero = () => {
             </div>
             <div className="sp-divider"></div>
             <div className="sp-rating">
-              <span className="sp-score">4.7/5</span>
+              <span className="sp-score">5/5</span>
               <div className="sp-stars">
                 <Star size={14} fill="#f59e0b" color="#f59e0b" />
                 <Star size={14} fill="#f59e0b" color="#f59e0b" />

@@ -28,17 +28,7 @@ const Footer = () => {
             </ul>
           </div>
           
-          <div className="footer-col">
-            <h4 className="footer-heading">Areas Served</h4>
-            <ul className="footer-links">
-              <li>Nashville</li>
-              <li>Brentwood</li>
-              <li>Franklin</li>
-              <li>Murfreesboro</li>
-              <li>Spring Hill</li>
-            </ul>
-          </div>
-          
+
           <div className="footer-col">
             <h4 className="footer-heading">Contact Us</h4>
             <ul className="footer-contact">
