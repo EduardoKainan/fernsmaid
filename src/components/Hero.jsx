@@ -33,6 +33,8 @@ const Hero = () => {
               <div className="sp-avatar"><Star size={12} fill="white" color="white" /></div>
               <div className="sp-avatar"><Star size={12} fill="white" color="white" /></div>
               <div className="sp-avatar"><Star size={12} fill="white" color="white" /></div>
+              <div className="sp-avatar"><Star size={12} fill="white" color="white" /></div>
+              <div className="sp-avatar"><Star size={12} fill="white" color="white" /></div>
             </div>
             <div className="sp-reviews">
               <span className="sp-count">1812</span>
