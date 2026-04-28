@@ -18,7 +18,7 @@ const Header = () => {
     <header className="header">
       <div className="container header-container">
         <Link to="/" className="logo" onClick={closeMenu}>
-          <img src="/logo.png" alt="Fern's Maid Service Logo" />
+          <img src="/logo.webp" alt="Fern's Maid Service Logo" />
         </Link>
         
         <nav className={`main-nav ${isMenuOpen ? 'nav-open' : ''}`}>

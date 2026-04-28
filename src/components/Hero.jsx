@@ -53,10 +53,6 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        
-        <div className="hero-image-wrapper">
-          <img src="/headerequipe.jpg" alt="Professional Cleaning Team" className="hero-image" />
-        </div>
       </div>
     </section>
   );

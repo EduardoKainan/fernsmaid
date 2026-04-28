@@ -3,12 +3,12 @@ import './Testimonials.css';
 
 const Testimonials = () => {
   const reviews = [
-    '/reviews/1pronto.jpg',
-    '/reviews/2pronto.jpg',
-    '/reviews/3pronto.jpg',
-    '/reviews/4pronto.jpg',
-    '/reviews/5pronto.jpg',
-    '/reviews/6pronto.jpg'
+    '/reviews/1pronto.webp',
+    '/reviews/2pronto.webp',
+    '/reviews/3pronto.webp',
+    '/reviews/4pronto.webp',
+    '/reviews/5pronto.webp',
+    '/reviews/6pronto.webp'
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -41,7 +41,7 @@ const Testimonials = () => {
                   className="testimonial-image-card clickable"
                   onClick={() => setSelectedImage(review)}
                 >
-                  <img src={review} alt={`Review ${index + 1}`} className="testimonial-image" />
+                  <img src={review} alt={`Review ${index + 1}`} className="testimonial-image" loading="lazy" />
                 </div>
               </div>
             ))}
@@ -65,7 +65,7 @@ const Testimonials = () => {
         <div className="lightbox-overlay" onClick={() => setSelectedImage(null)}>
           <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
             <button className="lightbox-close" onClick={() => setSelectedImage(null)}>&times;</button>
-            <img src={selectedImage} alt="Enlarged review" className="lightbox-image" />
+            <img src={selectedImage} alt="Enlarged review" className="lightbox-image" loading="lazy" />
           </div>
         </div>
       )}

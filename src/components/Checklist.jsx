@@ -74,7 +74,7 @@ const Checklist = () => {
           </div>
           
           <div className="checklist-image">
-            <img src="/checklist_cleaner_kitchen.png" alt="Cleaner organizing kitchen" className="checklist-img-real" />
+            <img src="/checklist_cleaner_kitchen.webp" alt="Cleaner organizing kitchen" className="checklist-img-real" loading="lazy" />
           </div>
         </div>
       </div>

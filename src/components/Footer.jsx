@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer-top">
           <div className="footer-col brand-col">
-            <img src="/logo.png" alt="Fern's Maid Service" className="footer-logo" />
+            <img src="/logo.webp" alt="Fern's Maid Service" className="footer-logo" loading="lazy" />
             <p className="footer-desc">
               Providing top-rated house cleaning services. We give you back your free time so you can focus on what matters most.
             </p>
