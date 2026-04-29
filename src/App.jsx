@@ -37,25 +37,7 @@ const TypebotWrapper = () => {
             customCss: "animation: tb-pulse 2s infinite; overflow: visible !important;"
           },
           chatWindow: { backgroundColor: "#338b8a" },
-          customCss: `
-            @keyframes tb-pulse {
-              0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(89, 142, 113, 0.7); }
-              70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(89, 142, 113, 0); }
-              100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(89, 142, 113, 0); }
-            }
-            button { overflow: visible !important; }
-            button::after {
-              content: '';
-              position: absolute;
-              top: 0px;
-              right: 0px;
-              width: 12px;
-              height: 12px;
-              background-color: #ef4444;
-              border-radius: 50%;
-              border: 2px solid white;
-            }
-          `
+          customCss: "@keyframes tb-pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(89, 142, 113, 0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(89, 142, 113, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(89, 142, 113, 0); } } button { overflow: visible !important; } button::after { content: ''; position: absolute; top: 0px; right: 0px; width: 12px; height: 12px; background-color: #ef4444; border-radius: 50%; border: 2px solid white; }"
         },
       });
       `;
