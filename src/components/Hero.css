@@ -146,13 +146,14 @@
 
   .hero-container {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
   }
   
   .hero-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    max-width: 80%;
   }
   
   .hero-title {
@@ -162,7 +163,7 @@
   .hero-cta {
     flex-direction: column;
     width: 100%;
-    max-width: 350px;
+    max-width: 280px;
   }
   
   .hero-badges {
