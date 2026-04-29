@@ -179,6 +179,11 @@
   .hero-badges {
     justify-content: center;
   }
+  
+  .hero-social-proof {
+    align-self: center;
+    margin-top: var(--spacing-sm);
+  }
 }
 
 @media (max-width: 480px) {
