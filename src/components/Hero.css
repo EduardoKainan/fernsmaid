@@ -141,9 +141,10 @@
 
 @media (max-width: 992px) {
   .hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('/headerequipe-MOB.webp');
+    background-image: none;
+    background-color: var(--primary-color);
     padding: var(--spacing-xl) 0;
-    min-height: 70vh;
+    min-height: auto;
   }
 
   .hero-container {
