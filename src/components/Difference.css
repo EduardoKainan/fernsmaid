@@ -1,0 +1,50 @@
+.difference-section {
+  padding: var(--spacing-xxl) 0;
+  background-color: var(--white);
+}
+
+.difference-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+  .difference-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .difference-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.difference-card {
+  padding: var(--spacing-lg);
+  background-color: var(--background-alt);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  border-top: 4px solid var(--secondary-color);
+  box-shadow: var(--box-shadow);
+}
+
+.difference-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.difference-card-title {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+}
+
+.difference-card-text {
+  font-size: 1rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+}

@@ -1,6 +1,6 @@
 .hero {
   padding: calc(var(--spacing-xl) * 2) 0;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('/headerequipe.webp');
+  background-image: linear-gradient(rgba(26, 32, 44, 0.65), rgba(26, 32, 44, 0.65)), url('/luxury_home.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -76,7 +76,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: #f43f5e; /* pink color from reference */
+  background-color: var(--secondary-color);
   display: flex;
   justify-content: center;
   align-items: center;

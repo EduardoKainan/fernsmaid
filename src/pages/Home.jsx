@@ -1,5 +1,7 @@
 import React from 'react';
 import Hero from '../components/Hero';
+import About from '../components/About';
+import Difference from '../components/Difference';
 import TrustIndicators from '../components/TrustIndicators';
 import Services from '../components/Services';
 import ServiceAreas from '../components/ServiceAreas';
@@ -11,11 +13,13 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <Testimonials />
+      <Difference />
       <ServiceAreas />
+      <Testimonials />
       <TrustIndicators />
       <Services />
       <Checklist />
+      <About />
       <FAQ />
     </>
   );

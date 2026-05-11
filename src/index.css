@@ -2,12 +2,12 @@
 
 :root {
   /* Design Tokens */
-  --primary-color: #114d56;
-  --secondary-color: #1f9a74;
-  --secondary-hover: #18805f;
+  --primary-color: #2c3e35;
+  --secondary-color: #8dae92;
+  --secondary-hover: #729177;
   
-  --text-dark: #2d3748;
-  --text-light: #718096;
+  --text-dark: #1a202c;
+  --text-light: #6b7280;
   --background-light: #f8fafc;
   --white: #ffffff;
   

@@ -6,29 +6,47 @@ const Checklist = () => {
   const [activeTab, setActiveTab] = useState('kitchen');
 
   const checklists = {
+    living: [
+      "Dust all surfaces, including furniture, shelves and decor",
+      "Wipe down dinning room table",
+      "Dust light fixtures and ceiling fans",
+      "Straight up blankets and pillows",
+      "Dust and wipe down baseboards",
+      "Wash interior of windows",
+      "Vacuuming and mopping"
+    ],
     kitchen: [
-      "Clean and sanitize countertops and sinks",
-      "Clean exterior of all appliances",
-      "Clean inside and outside of microwave",
-      "Wipe down cabinet faces",
-      "Sweep and mop floors",
-      "Empty trash and replace liners"
+      "Clean and sanitize all surfaces where food is prepared, including countertops and sinks",
+      "Wipe down exterior of appliances",
+      "Dust light fixtures and ceiling fans",
+      "Wipe down back splash",
+      "Wipe down interior of microwave",
+      "Dust and wipe down baseboards",
+      "Wipe down exterior of cabinets",
+      "Wash interior of windows",
+      "Vacuuming and mopping"
     ],
     bathroom: [
-      "Clean and sanitize toilets, showers, and tubs",
-      "Wipe down mirrors and glass surfaces",
-      "Clean and sanitize sinks and counters",
-      "Dust light fixtures and vents",
-      "Sweep and mop floors",
-      "Empty trash"
+      "Clean and sanitize toilets, sinks, and showers/bathtubs",
+      "Cleaning mirrors",
+      "Dust and wipe down baseboards",
+      "Wipe down exterior of cabinets",
+      "Wash interior of windows",
+      "Vacuuming and mopping"
     ],
-    living: [
-      "Dust all accessible surfaces",
-      "Wipe down mirrors and glass fixtures",
-      "Vacuum all carpets and rugs",
-      "Sweep and mop hard floors",
-      "Dust ceiling fans (within reach)",
-      "Remove cobwebs"
+    bedroom: [
+      "Dust all surfaces, including furniture, shelves and decor",
+      "Wash interior of windows",
+      "Dust and wipe down baseboards",
+      "Dust light fixtures and ceiling fans",
+      "Vacuuming and mopping"
+    ],
+    general: [
+      "Dust all surfaces, including furniture, shelves and decor",
+      "Dust and wipe down baseboards",
+      "Dust light fixtures and ceiling fans",
+      "Wash interior of windows",
+      "Vacuuming and mopping"
     ]
   };
 
@@ -42,7 +60,13 @@ const Checklist = () => {
               We don't just clean; we care for your home. Our comprehensive checklist ensures no detail is overlooked, giving you a consistently flawless result every single time.
             </p>
             
-            <div className="tabs">
+            <div className="tabs" style={{ flexWrap: 'wrap' }}>
+              <button 
+                className={`tab-btn ${activeTab === 'living' ? 'active' : ''}`}
+                onClick={() => setActiveTab('living')}
+              >
+                Living/Dinning
+              </button>
               <button 
                 className={`tab-btn ${activeTab === 'kitchen' ? 'active' : ''}`}
                 onClick={() => setActiveTab('kitchen')}
@@ -56,10 +80,16 @@ const Checklist = () => {
                 Bathrooms
               </button>
               <button 
-                className={`tab-btn ${activeTab === 'living' ? 'active' : ''}`}
-                onClick={() => setActiveTab('living')}
+                className={`tab-btn ${activeTab === 'bedroom' ? 'active' : ''}`}
+                onClick={() => setActiveTab('bedroom')}
               >
-                Living Areas
+                Bedroom
+              </button>
+              <button 
+                className={`tab-btn ${activeTab === 'general' ? 'active' : ''}`}
+                onClick={() => setActiveTab('general')}
+              >
+                General Areas
               </button>
             </div>
             
