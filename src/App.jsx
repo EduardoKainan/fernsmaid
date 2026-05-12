@@ -97,6 +97,31 @@ const TypebotWrapper = () => {
       document.body.append(typebotInitScript);
     }
   }, []);
+
+  useEffect(() => {
+    window.dataLayer = window.dataLayer || [];
+
+    const handleMessage = function(event) {
+      if (event.data?.type === "typebot:form-submit") {
+        const vars = event.data.answers;
+        window.dataLayer.push({
+          event: "lead_qualificado",
+          nome: vars.nome,
+          telefone: vars.telefone,
+          tipo_limpeza: vars.tipo_limpeza,
+          periodo_limpeza: vars.periodo_limpeza,
+          escolha_atendimento: vars.escolha_atendimento
+        });
+        console.log("Lead enviado", vars);
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+    };
+  }, []);
   
   return null;
 };
