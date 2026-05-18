@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Difference from '../components/Difference';
@@ -9,10 +9,18 @@ import Checklist from '../components/Checklist';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 
-const Home = () => {
+const Home = ({ heroProps, pageTitle }) => {
+  useEffect(() => {
+    if (pageTitle) {
+      document.title = pageTitle;
+    } else {
+      document.title = "Fern's Maid Service | Top-Rated House Cleaning in Nashville";
+    }
+  }, [pageTitle]);
+
   return (
     <>
-      <Hero />
+      <Hero {...heroProps} />
       <Difference />
       <ServiceAreas />
       <Testimonials />

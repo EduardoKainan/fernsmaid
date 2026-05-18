@@ -2,19 +2,21 @@ import React from 'react';
 import './Hero.css';
 import { Star } from 'lucide-react';
 
-const Hero = () => {
+const Hero = ({ 
+  title = "Get Your Free Time Back.", 
+  highlight = "We'll Handle the Cleaning.",
+  subtitle = "Experience the highest standard of house cleaning in Nashville. Trusted, reliable, and tailored to your lifestyle. Come home to peace of mind with Fern's Maid Service."
+}) => {
   return (
     <section className="hero">
       <div className="container hero-container">
         <div className="hero-content">
           <h1 className="hero-title">
-            Get Your Free Time Back.<br />
-            <span className="hero-highlight">We'll Handle the Cleaning.</span>
+            {title}<br />
+            <span className="hero-highlight">{highlight}</span>
           </h1>
           <p className="hero-subtitle">
-            Experience the highest standard of house cleaning in Nashville. 
-            Trusted, reliable, and tailored to your lifestyle. 
-            Come home to peace of mind with Fern's Maid Service.
+            {subtitle}
           </p>
           <div className="hero-cta">
             <button 

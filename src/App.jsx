@@ -136,6 +136,14 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
+            
+            {/* Google Ads Sitelink Landing Pages */}
+            <Route path="/free-quote" element={<Home pageTitle="Get a Free Quote in 60s | Fern's Maid Service" heroProps={{ title: "Get Your Free Quote ", highlight: "in 60 Seconds" }} />} />
+            <Route path="/deep-cleaning" element={<Home pageTitle="Deep Cleaning Services | Fern's Maid Service" heroProps={{ title: "Transform Your Home With ", highlight: "Deep Cleaning" }} />} />
+            <Route path="/move-in-out" element={<Home pageTitle="Move In/Out Cleaning | Fern's Maid Service" heroProps={{ title: "Stress-Free ", highlight: "Move In/Out Cleaning", subtitle: "Focus on your move while we handle the mess. Ensure you get your deposit back with our thorough cleaning." }} />} />
+            <Route path="/top-rated-maids" element={<Home pageTitle="Top-Rated Maids in Nashville | Fern's Maid Service" heroProps={{ title: "Hire Nashville's ", highlight: "Top-Rated Maids", subtitle: "Trusted, background-checked, and reliable professionals dedicated to making your home spotless." }} />} />
+            <Route path="/guarantee" element={<Home pageTitle="100% Satisfaction Guarantee | Fern's Maid Service" heroProps={{ title: "Backed By Our ", highlight: "100% Satisfaction Guarantee", subtitle: "We stand behind our work. If you're not completely satisfied, we'll re-clean for free." }} />} />
+
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/contact" element={<Contact />} />
