@@ -50,6 +50,12 @@ const Footer = () => {
         
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} Fern's Maid Service. All rights reserved.</p>
+          <div className="footer-dev">
+            <span>Desenvolvido por </span>
+            <a href="mailto:eduardokainangubi@gmail.com" className="dev-link">Eduardo Kainan</a>
+            <span className="dev-sep">|</span>
+            <a href="https://wa.me/556199999999" className="dev-link" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </div>
         </div>
       </div>
     </footer>

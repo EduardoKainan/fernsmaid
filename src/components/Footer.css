@@ -116,6 +116,27 @@
   font-size: 0.9rem;
 }
 
+.footer-dev {
+  margin-top: 8px;
+  font-size: 0.85rem;
+}
+
+.dev-link {
+  color: var(--secondary-color);
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.dev-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.dev-sep {
+  margin: 0 10px;
+  color: rgba(255,255,255,0.3);
+}
+
 @media (max-width: 992px) {
   .footer-top {
     grid-template-columns: 1fr 1fr;
