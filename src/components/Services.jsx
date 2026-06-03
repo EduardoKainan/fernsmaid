@@ -7,21 +7,21 @@ const Services = () => {
     {
       id: 1,
       title: "Recurring Cleaning",
-      price: { prefix: "From", amount: "$129", suffix: "/visit" },
+      price: { prefix: "Estimate", amount: "$129", suffix: "/visit" },
       icon: <Calendar size={40} />,
       description: "Weekly, bi-weekly, or monthly cleaning to keep your home consistently fresh and manageable."
     },
     {
       id: 2,
       title: "Deep Cleaning",
-      price: { prefix: "From", amount: "$249", suffix: "" },
+      price: { prefix: "Estimate", amount: "$249", suffix: "" },
       icon: <Sparkles size={40} />,
       description: "A top-to-bottom refresh reaching the often-overlooked areas. Ideal for seasonal resets."
     },
     {
       id: 3,
       title: "Move In/Out Cleaning",
-      price: { prefix: "From", amount: "$299", suffix: "" },
+      price: { prefix: "Estimate", amount: "$299", suffix: "" },
       icon: <Home size={40} />,
       description: "Ensure every surface is spotless and ready for what's next. We clean inside cabinets and appliances."
     },

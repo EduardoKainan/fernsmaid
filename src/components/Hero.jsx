@@ -26,9 +26,6 @@ const Hero = ({
             >
               Get a Free Quote
             </button>
-            <a href="tel:+16153002559" className="btn btn-outline btn-large">
-              Call (615) 300-2559
-            </a>
           </div>
           
           <div className="hero-social-proof">

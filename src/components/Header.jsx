@@ -29,10 +29,9 @@ const Header = () => {
         </nav>
         
         <div className="header-contact">
-          <a href="tel:+16153002559" className="phone-link">
-            <Phone size={20} />
-            <span>(615) 300-2559</span>
-          </a>
+          <button data-scroll-to="quote-form" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem', marginRight: '0.5rem' }}>
+            Get a Quote
+          </button>
           <button className="mobile-menu-btn" onClick={toggleMenu}>
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
