@@ -19,6 +19,9 @@ const Hero = ({
           <p className="hero-subtitle">
             {subtitle}
           </p>
+          <div className="hero-location-badge">
+            <span>📍 Serving Nashville &amp; Middle Tennessee</span>
+          </div>
           <div className="hero-cta">
             <button 
               data-scroll-to="quote-form"

@@ -8,8 +8,6 @@ import ServiceAreas from '../components/ServiceAreas';
 import Checklist from '../components/Checklist';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
-import PricingProof from '../components/PricingProof';
-
 const Home = ({ heroProps, pageTitle }) => {
   useEffect(() => {
     if (pageTitle) {
@@ -26,7 +24,6 @@ const Home = ({ heroProps, pageTitle }) => {
       <ServiceAreas />
       <TrustIndicators />
       <Services />
-      <PricingProof />
       <Testimonials />
       <Checklist />
       <About />

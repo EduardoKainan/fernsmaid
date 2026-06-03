@@ -54,6 +54,34 @@
   font-weight: 400;
 }
 
+.hero-location-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 18px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.hero-location-badge span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 768px) {
+  .hero-location-badge {
+    font-size: 0.85rem;
+    padding: 6px 14px;
+  }
+}
+
 .hero-cta {
   display: flex;
   gap: var(--spacing-md);
