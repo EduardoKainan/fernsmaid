@@ -28,6 +28,14 @@
   max-width: 600px;
 }
 
+.hero-form-wrapper {
+  flex: 1;
+  max-width: 500px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
 .hero-title {
   font-size: 3.5rem;
   margin-bottom: var(--spacing-md);
@@ -152,6 +160,12 @@
     text-align: left;
   }
   
+  .hero-form-wrapper {
+    margin-top: var(--spacing-lg);
+    justify-content: center;
+    max-width: 100%;
+  }
+
   .hero-content {
     display: flex;
     flex-direction: column;

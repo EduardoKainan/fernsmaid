@@ -1,6 +1,7 @@
 import React from 'react';
 import './Hero.css';
 import { Star } from 'lucide-react';
+import QuoteForm from './QuoteForm';
 
 const Hero = ({ 
   title = "Get Your Free Time Back.", 
@@ -20,7 +21,7 @@ const Hero = ({
           </p>
           <div className="hero-cta">
             <button 
-              onClick={(e) => { e.preventDefault(); window.Typebot?.open(); }} 
+              data-scroll-to="quote-form"
               className="btn btn-primary btn-large"
             >
               Get a Free Quote
@@ -54,6 +55,10 @@ const Hero = ({
               </div>
             </div>
           </div>
+        </div>
+        
+        <div className="hero-form-wrapper">
+          <QuoteForm />
         </div>
       </div>
     </section>

@@ -1,136 +1,61 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import ServicesPage from './pages/ServicesPage';
 import Contact from './pages/Contact';
+import QuoteForm from './components/QuoteForm';
+import { Sparkles } from 'lucide-react';
+import './App.css';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
-  const { pathname } = window.location;
+  const { pathname, hash } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return null;
-};
-
-// Component to handle Typebot script
-const TypebotWrapper = () => {
-  useEffect(() => {
-    const scriptId = 'typebot-script';
-    if (!document.getElementById(scriptId)) {
-      const typebotInitScript = document.createElement("script");
-      typebotInitScript.id = scriptId;
-      typebotInitScript.type = "module";
-      typebotInitScript.innerHTML = `import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0/dist/web.js'
-      
-      window.Typebot = Typebot;
-
-      Typebot.initBubble({
-        typebot: "clean-service",
-        apiHost: "https://typebotapi.zapgestao.app.br",
-        theme: {
-          button: { backgroundColor: "#598E71" },
-          chatWindow: { backgroundColor: "#338b8a" }
-        }
-      });
-      
-      // Inject pulse effect directly into the shadow DOM
-      const injectPulse = () => {
-        const bubble = document.querySelector('typebot-bubble') || document.querySelector('typebot-standard');
-        if (bubble && bubble.shadowRoot) {
-          if (!bubble.shadowRoot.querySelector('#tb-pulse-style')) {
-            const style = document.createElement('style');
-            style.id = 'tb-pulse-style';
-            style.innerHTML = \`
-              @keyframes tbPulse {
-                0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(89, 142, 113, 0.7); }
-                70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(89, 142, 113, 0); }
-                100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(89, 142, 113, 0); }
-              }
-              button[part="button"] {
-                animation: tbPulse 2s infinite;
-                overflow: visible !important;
-              }
-              button[part="button"]::after {
-                content: '';
-                position: absolute;
-                top: 0px;
-                right: 0px;
-                width: 14px;
-                height: 14px;
-                background-color: #ef4444;
-                border-radius: 50%;
-                border: 2px solid white;
-                z-index: 100;
-              }
-              /* Fallback if part="button" is not used */
-              div[class*="bubble-button-container"] button,
-              .typebot-button {
-                animation: tbPulse 2s infinite;
-                overflow: visible !important;
-              }
-              div[class*="bubble-button-container"] button::after,
-              .typebot-button::after {
-                content: '';
-                position: absolute;
-                top: 0px;
-                right: 0px;
-                width: 14px;
-                height: 14px;
-                background-color: #ef4444;
-                border-radius: 50%;
-                border: 2px solid white;
-                z-index: 100;
-              }
-            \`;
-            bubble.shadowRoot.appendChild(style);
-          }
-        } else {
-          setTimeout(injectPulse, 500);
-        }
-      };
-      setTimeout(injectPulse, 1000);
-      `;
-      document.body.append(typebotInitScript);
+    if (hash) {
+      setTimeout(() => {
+        const el = document.getElementById(hash.replace('#', ''));
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
     }
-  }, []);
-
-  useEffect(() => {
-    window.dataLayer = window.dataLayer || [];
-
-    const handleMessage = function(event) {
-      if (event.data?.type === "typebot:form-submit") {
-        const vars = event.data.answers;
-        window.dataLayer.push({
-          event: "lead_qualificado",
-          nome: vars.nome,
-          telefone: vars.telefone,
-          tipo_limpeza: vars.tipo_limpeza,
-          periodo_limpeza: vars.periodo_limpeza,
-          escolha_atendimento: vars.escolha_atendimento
-        });
-        console.log("Lead enviado", vars);
-      }
-    };
-
-    window.addEventListener("message", handleMessage);
-
-    return () => {
-      window.removeEventListener("message", handleMessage);
-    };
-  }, []);
-  
+  }, [pathname, hash]);
   return null;
 };
 
 function App() {
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScrollClick = (e) => {
+      const target = e.target.closest('[data-scroll-to]');
+      if (target) {
+        e.preventDefault();
+        const id = target.getAttribute('data-scroll-to');
+        if (window.innerWidth <= 768) {
+          setIsQuoteModalOpen(true);
+        } else {
+          // If on home page, scroll
+          const el = document.getElementById(id);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            // Not on home, navigate to home with hash
+            window.location.href = '/#' + id;
+          }
+        }
+      }
+    };
+    document.addEventListener('click', handleScrollClick);
+    return () => document.removeEventListener('click', handleScrollClick);
+  }, []);
+
   return (
     <Router>
       <ScrollToTop />
-      <TypebotWrapper />
       <div className="App">
         <Header />
         <main>
@@ -150,6 +75,28 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        
+        {/* Floating Action Button */}
+        <button 
+          className="floating-action-btn" 
+          onClick={() => setIsQuoteModalOpen(true)}
+          aria-label="Get a Free Quote"
+        >
+          <Sparkles size={24} />
+          <span>Get a Quote</span>
+        </button>
+
+        {/* Global Quote Modal */}
+        {isQuoteModalOpen && (
+          <div className="quote-modal-overlay" onClick={(e) => {
+            if (e.target.className === 'quote-modal-overlay') setIsQuoteModalOpen(false);
+          }}>
+            <div className="quote-modal-content">
+              <button className="quote-modal-close" onClick={() => setIsQuoteModalOpen(false)}>&times;</button>
+              <QuoteForm />
+            </div>
+          </div>
+        )}
       </div>
     </Router>
   );

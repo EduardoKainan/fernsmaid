@@ -64,9 +64,40 @@
   padding-top: var(--spacing-md);
 }
 
+.service-price-block {
+  margin-bottom: var(--spacing-md);
+}
+
 .service-price {
-  font-weight: 700;
-  color: var(--primary-color);
+  color: #1a365d;
+  font-weight: bold;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.service-price.contact-price .price-amount {
+  font-size: 1.2rem;
+}
+
+.price-prefix {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.price-amount {
+  font-size: 24px;
+}
+
+.price-suffix {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.price-disclaimer {
+  color: #a0aec0;
+  font-size: 0.85rem;
+  margin-top: 4px;
 }
 
 @media (max-width: 576px) {
