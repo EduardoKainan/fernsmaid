@@ -54,7 +54,7 @@ const Footer = () => {
             <span>Desenvolvido por </span>
             <a href="mailto:eduardokainangubi@gmail.com" className="dev-link">Eduardo Kainan</a>
             <span className="dev-sep">|</span>
-            <a href="https://wa.me/556199999999" className="dev-link" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href="https://wa.me/5562985328488" className="dev-link" target="_blank" rel="noopener noreferrer">WhatsApp</a>
           </div>
         </div>
       </div>
