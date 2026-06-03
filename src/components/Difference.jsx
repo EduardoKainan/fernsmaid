@@ -1,7 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './Difference.css';
 
+const carouselImages = [
+  { src: '/before-after-bathroom.webp', alt: 'Bathroom before and after deep cleaning' },
+  { src: '/before-after-kitchen.webp', alt: 'Kitchen before and after professional cleaning' },
+  { src: '/before-after-bedroom.webp', alt: 'Bedroom before and after cleaning' },
+  { src: '/clean-living-room.webp', alt: 'Pristine luxury living room' },
+  { src: '/team.webp', alt: 'Our professional cleaning team' },
+];
+
 const Difference = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % carouselImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [isPaused]);
+
+  const goTo = useCallback((index) => {
+    setCurrentIndex(index);
+  }, []);
+
   const differences = [
     {
       title: "Consistent",
@@ -33,8 +56,29 @@ const Difference = () => {
     <section className="difference-section">
       <div className="container">
         <h2 className="section-title text-center">THE DIFFERENCE YOU DESERVE</h2>
-        <div className="difference-before-after">
-          <img src="/before-after-bathroom.webp" alt="Bathroom before and after deep cleaning" className="difference-ba-img" loading="lazy" />
+        <div 
+          className="difference-carousel"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {carouselImages.map((img, index) => (
+            <div 
+              key={index}
+              className={`carousel-slide ${index === currentIndex ? 'active' : ''}`}
+            >
+              <img src={img.src} alt={img.alt} className="carousel-img" loading="lazy" />
+            </div>
+          ))}
+          <div className="carousel-dots">
+            {carouselImages.map((_, index) => (
+              <button
+                key={index}
+                className={`carousel-dot ${index === currentIndex ? 'active' : ''}`}
+                onClick={() => goTo(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
         <div className="difference-grid">
           {differences.map((diff, index) => (

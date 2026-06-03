@@ -3,18 +3,69 @@
   background-color: var(--white);
 }
 
-.difference-before-after {
+.difference-carousel {
+  position: relative;
   max-width: 900px;
   margin: 0 auto var(--spacing-xl);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: var(--box-shadow);
+  aspect-ratio: 3/2;
+  background-color: #f0f0f0;
 }
 
-.difference-ba-img {
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  pointer-events: none;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  transform: scale(1.2);
+}
+
+.carousel-dot:hover {
+  background-color: rgba(141, 174, 146, 0.5);
 }
 
 .difference-grid {
