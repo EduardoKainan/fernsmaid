@@ -3,6 +3,20 @@
   background-color: var(--white);
 }
 
+.difference-before-after {
+  max-width: 900px;
+  margin: 0 auto var(--spacing-xl);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+.difference-ba-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .difference-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);

@@ -8,6 +8,10 @@ const PricingProof = () => {
         <div className="pricing-proof-content">
           <h2 className="pricing-proof-title">See What You'll Pay — No Surprises</h2>
           
+          <div className="pricing-proof-image">
+            <img src="/before-after-bedroom.webp" alt="Bedroom before and after professional cleaning" className="pricing-proof-img" loading="lazy" />
+          </div>
+          
           <div className="pricing-columns">
             <div className="pricing-column">
               <h3>Standard Clean</h3>

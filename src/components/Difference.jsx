@@ -33,6 +33,9 @@ const Difference = () => {
     <section className="difference-section">
       <div className="container">
         <h2 className="section-title text-center">THE DIFFERENCE YOU DESERVE</h2>
+        <div className="difference-before-after">
+          <img src="/before-after-bathroom.webp" alt="Bathroom before and after deep cleaning" className="difference-ba-img" loading="lazy" />
+        </div>
         <div className="difference-grid">
           {differences.map((diff, index) => (
             <div key={index} className="difference-card">
