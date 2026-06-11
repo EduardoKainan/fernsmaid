@@ -13,9 +13,9 @@ const About = () => {
               For our weekly and biweekly services, the same trusted two-person team arrives every time—delivering consistent, reliable, and efficient cleaning. Backed by a satisfaction guarantee, over 300 verified reviews, and real-time updates personally provided by a dedicated team member, you can rest assured you're in capable hands.
             </p>
             <div className="about-cta">
-              <button data-scroll-to="quote-form" className="btn btn-primary">
+              <a href={`sms:+16153002559?body=${encodeURIComponent("Hi! I found you through the website and would like to request a free quote.")}`} className="btn btn-primary" style={{ textDecoration: 'none' }}>
                 Meet Your Team
-              </button>
+              </a>
             </div>
           </div>
           <div className="about-image">

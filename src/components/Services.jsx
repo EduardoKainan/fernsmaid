@@ -47,12 +47,13 @@ const Services = () => {
               <h3 className="service-title">{service.title}</h3>
               <p className="service-desc">{service.description}</p>
               <div className="service-footer">
-                <button 
-                  data-scroll-to="quote-form"
+                <a 
+                  href={`sms:+16153002559?body=${encodeURIComponent("Hi! I found you through the website and would like to request a free quote.")}`}
                   className="btn btn-outline"
+                  style={{ textDecoration: 'none' }}
                 >
                   Book Now
-                </button>
+                </a>
               </div>
             </div>
           ))}

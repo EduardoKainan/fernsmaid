@@ -29,9 +29,9 @@ const Header = () => {
         </nav>
         
         <div className="header-contact">
-          <button data-scroll-to="quote-form" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem', marginRight: '0.5rem' }}>
+          <a href={`sms:+16153002559?body=${encodeURIComponent("Hi! I found you through the website and would like to request a free quote.")}`} className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem', marginRight: '0.5rem', textDecoration: 'none' }}>
             Get a Quote
-          </button>
+          </a>
           <button className="mobile-menu-btn" onClick={toggleMenu}>
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>

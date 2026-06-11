@@ -23,12 +23,13 @@ const Hero = ({
             <span>📍 Serving Nashville &amp; Middle Tennessee</span>
           </div>
           <div className="hero-cta">
-            <button 
-              data-scroll-to="quote-form"
+            <a 
+              href={`sms:+16153002559?body=${encodeURIComponent("Hi! I found you through the website and would like to request a free quote.")}`}
               className="btn btn-primary btn-large"
+              style={{ textDecoration: 'none' }}
             >
               Get a Free Quote
-            </button>
+            </a>
           </div>
           
           <div className="hero-social-proof">
@@ -55,10 +56,6 @@ const Hero = ({
               </div>
             </div>
           </div>
-        </div>
-        
-        <div className="hero-form-wrapper">
-          <QuoteForm />
         </div>
       </div>
     </section>

@@ -33,12 +33,13 @@ const PricingProof = () => {
           </div>
           
           <div className="pricing-proof-cta">
-            <button 
-              data-scroll-to="quote-form"
+            <a 
+              href={`sms:+16153002559?body=${encodeURIComponent("Hi! I found you through the website and would like to request a free quote.")}`}
               className="btn btn-primary btn-large"
+              style={{ textDecoration: 'none' }}
             >
               Get Your Free Quote
-            </button>
+            </a>
           </div>
           
           <p className="pricing-proof-footer">
