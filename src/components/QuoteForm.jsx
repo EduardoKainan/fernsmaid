@@ -24,11 +24,11 @@ const QuoteForm = () => {
       .then((result) => {
           console.log(result.text);
           setSubmitStatus('success');
-          form.current.reset();
           setTimeout(() => {
             const formData = new FormData(form.current);
             const data = Object.fromEntries(formData.entries());
-            const messageBody = encodeURIComponent(`Hi! My name is ${data.user_name}. I would like to get a quote for a ${data.cleaning_type} (${data.frequency}) for my ${data.home_size}. My email is ${data.user_email}.`);
+            const messageBody = encodeURIComponent(`Hi! My name is ${data.user_name || ''}. I would like to get a quote for a ${data.cleaning_type || ''} (${data.frequency || ''}) for my ${data.home_size || ''}. My email is ${data.user_email || ''}.`);
+            form.current.reset();
             window.location.href = `sms:+16153002559?body=${messageBody}`;
           }, 500);
       }, (error) => {

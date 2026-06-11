@@ -27,31 +27,20 @@ const ScrollToTop = () => {
 };
 
 function App() {
-  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-
   useEffect(() => {
     const handleScrollClick = (e) => {
       const target = e.target.closest('[data-scroll-to]');
       if (target) {
         e.preventDefault();
-        const id = target.getAttribute('data-scroll-to');
-        if (window.innerWidth <= 768) {
-          setIsQuoteModalOpen(true);
-        } else {
-          // If on home page, scroll
-          const el = document.getElementById(id);
-          if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
-          } else {
-            // Not on home, navigate to home with hash
-            window.location.href = '/#' + id;
-          }
-        }
+        const smsBody = encodeURIComponent("Hi! I found you through the website and would like to request a free quote.");
+        window.location.href = `sms:+16153002559?body=${smsBody}`;
       }
     };
     document.addEventListener('click', handleScrollClick);
     return () => document.removeEventListener('click', handleScrollClick);
   }, []);
+
+  const smsLink = `sms:+16153002559?body=${encodeURIComponent("Hi! I found you through the website and would like to request a free quote.")}`;
 
   return (
     <Router>
@@ -74,29 +63,30 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
-        <Footer />
         
-        {/* Floating Action Button */}
-        <button 
-          className="floating-action-btn" 
-          onClick={() => setIsQuoteModalOpen(true)}
-          aria-label="Get a Free Quote"
-        >
-          <Sparkles size={24} />
-          <span>Get a Quote</span>
-        </button>
-
-        {/* Global Quote Modal */}
-        {isQuoteModalOpen && (
-          <div className="quote-modal-overlay" onClick={(e) => {
-            if (e.target.className === 'quote-modal-overlay') setIsQuoteModalOpen(false);
-          }}>
-            <div className="quote-modal-content">
-              <button className="quote-modal-close" onClick={() => setIsQuoteModalOpen(false)}>&times;</button>
+        {/* Form at the end of the site */}
+        <div id="contact-form-section" style={{ backgroundColor: 'var(--background-light)', padding: '60px 0' }}>
+          <div className="container" style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', justifyContent: 'center' }}>
+            <div style={{ flex: '1', minWidth: '300px', maxWidth: '500px', backgroundColor: 'var(--white)', padding: '40px', borderRadius: 'var(--border-radius)', boxShadow: 'var(--box-shadow)' }}>
+              <h3 style={{ color: 'var(--primary-color)', marginBottom: '20px', fontFamily: 'var(--font-heading)' }}>Get Your Free Quote</h3>
+              <p style={{ color: 'var(--text-light)', marginBottom: '30px' }}>Fill out the form and we'll get back to you within 24 hours with a personalized estimate.</p>
               <QuoteForm />
             </div>
           </div>
-        )}
+        </div>
+
+        <Footer />
+        
+        {/* Floating Action Button */}
+        <a 
+          href={smsLink}
+          className="floating-action-btn" 
+          aria-label="Get a Free Quote"
+          style={{ textDecoration: 'none' }}
+        >
+          <Sparkles size={24} />
+          <span>Get a Quote</span>
+        </a>
       </div>
     </Router>
   );
