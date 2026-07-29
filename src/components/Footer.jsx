@@ -52,7 +52,7 @@ const Footer = () => {
           <p>&copy; {new Date().getFullYear()} Fern's Maid Service. All rights reserved.</p>
           <div className="footer-dev">
             <span>Developed by </span>
-            <a href="mailto:eduardokainangubi@gmail.com" className="dev-link">Eduardo Kainan</a>
+            <a href="mailto:eduardokainangubi@gmail.com" className="dev-link" data-no-contact-track>Eduardo Kainan</a>
             <span className="dev-sep">|</span>
             <a href="https://wa.me/5562985328488" className="dev-link" target="_blank" rel="noopener noreferrer">WhatsApp</a>
           </div>

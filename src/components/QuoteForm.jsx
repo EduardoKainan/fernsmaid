@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import './QuoteForm.css';
+import { trackLead } from '../lib/metaPixel';
 
 const QuoteForm = () => {
   const form = useRef();
@@ -27,6 +28,7 @@ const QuoteForm = () => {
           setTimeout(() => {
             const formData = new FormData(form.current);
             const data = Object.fromEntries(formData.entries());
+            trackLead({ content_name: 'Quote Form' });
             const messageBody = encodeURIComponent(`Hi! My name is ${data.user_name || ''}. I would like to get a quote for a ${data.cleaning_type || ''} (${data.frequency || ''}) for my ${data.home_size || ''}. My email is ${data.user_email || ''}.`);
             form.current.reset();
             window.location.href = `sms:+16153002559?body=${messageBody}`;

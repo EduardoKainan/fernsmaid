@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -8,11 +8,14 @@ import ServicesPage from './pages/ServicesPage';
 import Contact from './pages/Contact';
 import QuoteForm from './components/QuoteForm';
 import { Sparkles } from 'lucide-react';
+import { trackMetaEvent, trackContact } from './lib/metaPixel';
 import './App.css';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
+  const isFirstRender = useRef(true);
+
   useEffect(() => {
     if (hash) {
       setTimeout(() => {
@@ -23,15 +26,33 @@ const ScrollToTop = () => {
       window.scrollTo(0, 0);
     }
   }, [pathname, hash]);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
+    trackMetaEvent('PageView');
+  }, [pathname]);
+
   return null;
 };
 
 function App() {
   useEffect(() => {
     const handleScrollClick = (e) => {
+      const contactTarget = e.target.closest('a[href^="sms:"], a[href^="tel:"], a[href^="mailto:"]');
+      if (contactTarget && !contactTarget.closest('[data-no-contact-track]')) {
+        trackContact({
+          content_name: contactTarget.textContent?.trim().slice(0, 80) || 'Contact CTA',
+        });
+      }
+
       const target = e.target.closest('[data-scroll-to]');
       if (target) {
         e.preventDefault();
+        trackContact({ content_name: 'Sticky CTA' });
         const smsBody = encodeURIComponent("Hi! I found you through the website and would like to request a free quote.");
         window.location.href = `sms:+16153002559?body=${smsBody}`;
       }
